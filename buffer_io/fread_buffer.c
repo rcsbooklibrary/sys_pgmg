@@ -29,4 +29,5 @@ int main()
 		double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
 		printf("File Size : %d\n Block size :%d\n %s\n Time spent:%f\n",(int)fileStat.st_size,(int)fileStat.st_blksize,str,time_spent);
 	}
+	fclose(stream);
 }
