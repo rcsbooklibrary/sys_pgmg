@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stdio.h>
+#include <time.h>
 
 int main()
 {
@@ -18,7 +19,14 @@ int main()
 	k = stat("/home/user/RCL/samples/file_io/text.txt",&fileStat);
 	if(stream != NULL){
 	//	c = fread(str,4096,fileStat.st_size-4,stream);
-		c = fread(str,4096,1,stream);
-		printf("File Size : %d\n Block size :%d\n %s\n",(int)fileStat.st_size,(int)fileStat.st_blksize,str);
+		/*just using the file block size to read to perform the operation faster.The clock API returns the
+		  number of clock ticks per second. In this example it is proved that the operation is faster when 
+                  read in integer multiples of the block size*/
+		clock_t begin = clock();
+		c = fread(str,fileStat.st_blksize,1,stream);
+	//	c = fread(str,512,8,stream);
+		clock_t end  = clock();
+		double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+		printf("File Size : %d\n Block size :%d\n %s\n Time spent:%f\n",(int)fileStat.st_size,(int)fileStat.st_blksize,str,time_spent);
 	}
 }
