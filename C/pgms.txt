@@ -1,0 +1,13 @@
+	simple
+++++++++++++++++++++++++++++++++++++++
+1> 4 stages of compiling a c program.
+
+pgms on integers:
+----------------
+2> C Program to Check if a given Integer is Odd or Even 
+3> C Program to Calculate the Sum of Odd & Even Numbers 
+4> C Program to Check if a given Integer is Positive or Negative 
+5> C Program to Find the Number of Integers Divisible by 5 
+6> C Program to Read Two Integers M and N & Swap their Values 
+7> C Program to Accept two Integers and Check if they are Equal 
+8> C Program to Compute the Sum of Digits in a given Integer
